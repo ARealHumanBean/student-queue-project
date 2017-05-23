@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522231405) do
+ActiveRecord::Schema.define(version: 20170523080511) do
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "type",       null: false
+    t.text     "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "camosun_id", limit: 8,  null: false
