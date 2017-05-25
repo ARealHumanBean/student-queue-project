@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class RequestTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @request = Request.new(user_id: 1, type: "demo", info: "blah")
+  end
+  
+  test ""
 end

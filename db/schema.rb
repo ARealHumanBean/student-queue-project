@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20170523080511) do
 
   create_table "requests", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "type",       null: false
+    t.integer  "queue_type", null: false
     t.text     "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
