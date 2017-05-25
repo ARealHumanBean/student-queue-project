@@ -10,6 +10,4 @@ class Request < ApplicationRecord
   def set_default_type
     self.queue_type ||= :quick_question
   end
-  
-
 end
