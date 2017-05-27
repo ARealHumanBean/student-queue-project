@@ -5,9 +5,9 @@ class RequestsController < ApplicationController
   # Manage Requests view
   def index
     @requests = Request.all
-    @question = Request.question.all
-    @demo = Request.demo.all
-    @support = Request.support.all
+    @question = Request.question
+    @demo = Request.demo
+    @support = Request.support
   end
   
   def show
