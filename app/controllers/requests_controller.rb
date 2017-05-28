@@ -4,6 +4,9 @@ class RequestsController < ApplicationController
   
   # Manage Requests view
   def index
+    #TO DO: 
+    # - Use render action to show the specific question/demo/support queue
+    
     @requests = Request.all
     @question = Request.question
     @demo = Request.demo
