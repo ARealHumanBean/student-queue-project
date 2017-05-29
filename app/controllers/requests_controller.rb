@@ -31,6 +31,9 @@ class RequestsController < ApplicationController
   end
   
   def destroy
+    Request.find(params[:id]).destroy
+    flash[:success] = "Request Completed"
+    redirect_to requests_url
   end
   
   def edit  
