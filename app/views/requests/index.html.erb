@@ -1,0 +1,26 @@
+<div id=queue_types>
+  <%= link_to "Questions", requests_path(queue_type: "question") %>
+  <%= link_to "Demos", requests_path(queue_type: "demo") %>
+  <%= link_to "Suport", requests_path(queue_type: "support") %>
+</div>
+
+<div id=queue>
+  <table>
+    <tr>
+      <th>Camosun ID</th>
+      <th>Student Name</th>
+      <th>Request Type</th>
+      <th>Request info</th>
+      <th></th>
+    </tr>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.user.camosun_id %> </td>
+        <td><%= request.user.first_name + request.user.last_name %></td>
+        <td><%= request.queue_type %></td>
+        <td><%= request.info %></td>
+        <td><%= link_to "Completed", request, method: :delete %><td>
+      </tr>
+      <% end %>
+  </table>
+</div>
