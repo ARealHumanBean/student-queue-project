@@ -15,18 +15,6 @@ class RequestsController < ApplicationController
     end
   end
   
-  def show_questions
-    @requests = Request.question
-  end
-  
-  def show_demo
-    @demo = Request.demo
-  end
-  
-  def show_support
-    @requests = Request.support
-  end
-  
   def show
   end
   
