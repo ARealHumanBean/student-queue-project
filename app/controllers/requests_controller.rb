@@ -29,6 +29,6 @@ class RequestsController < ApplicationController
   
   private
     def request_params
-      params.require(:request).permit(:queue_type)
+      params.require(:request).permit(:queue_type, :id)
     end
 end
