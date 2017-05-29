@@ -4,13 +4,27 @@ class RequestsController < ApplicationController
   
   # Manage Requests view
   def index
-    #TO DO: 
-    # - Use render action to show the specific question/demo/support queue
+    queue_type = params[:queue_type]
     
-    @requests = Request.all
-    @question = Request.question
+    if queue_type == "demo"
+      @requests = Request.demo
+    elsif queue_type == "support"
+      @requests = Request.support
+    else
+      @requests = Request.question
+    end
+  end
+  
+  def show_questions
+    @requests = Request.question
+  end
+  
+  def show_demo
     @demo = Request.demo
-    @support = Request.support
+  end
+  
+  def show_support
+    @requests = Request.support
   end
   
   def show
@@ -21,4 +35,9 @@ class RequestsController < ApplicationController
   
   def edit  
   end
+  
+  private
+    def request_params
+      params.require(:request).permit(:queue_type)
+    end
 end
