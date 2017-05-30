@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(camosun_id: params[:session][:camosun_id].upcase)
     if user
-      # Log the user in and display their respective views.
+      log_in user
+      redirect_to user
     else
       # create an error message
       flash.now[:danger] = "invalid email/password combination"
