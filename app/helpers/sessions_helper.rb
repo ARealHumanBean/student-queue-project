@@ -5,6 +5,12 @@ module SessionsHelper
     session[:user_id] = user.id
   end
   
+  # Log out a user
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
+  
   # Return the current logged-in user
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])

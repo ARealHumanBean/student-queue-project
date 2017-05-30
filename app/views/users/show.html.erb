@@ -1,0 +1,12 @@
+<h1><%= @user.full_name %></h1>
+  
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <p>
+        Camosun Id: <%= @user.camosun_id %>
+      </p>
+      <%= link_to "Log out", logout_path, method: :delete %>
+    </section>
+  </aside>
+</div>  
