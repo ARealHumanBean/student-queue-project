@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(params[])
   end
   
   def show
+    
   end
   
   def edit
