@@ -6,6 +6,7 @@
       <p>
         Camosun Id: <%= @user.camosun_id %>
       </p>
+      <%= link_to "Show Request", request_path %>
       <%= link_to "Log out", logout_path, method: :delete %>
     </section>
   </aside>

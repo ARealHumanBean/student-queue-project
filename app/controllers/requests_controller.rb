@@ -16,12 +16,17 @@ class RequestsController < ApplicationController
   end
   
   def show
+    @request = Request.find_by(id: params[:id])
   end
   
   def destroy
     Request.find(params[:id]).destroy
     flash[:success] = "Request Completed"
-    redirect_to requests_url
+    if current_user.student
+      redirect_to user_url
+    elsif current_user.instructor
+      redirect_to requests_url
+    end
   end
   
   def edit  

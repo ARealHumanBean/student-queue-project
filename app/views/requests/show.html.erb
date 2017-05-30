@@ -1,0 +1,4 @@
+<h1>Requested Type: <%= @request.queue_type %></h1>
+<h3>Request Description</h3>
+<p><%= @request.info %></p>
+<%= link_to "Delete", @request, method: :delete %>
