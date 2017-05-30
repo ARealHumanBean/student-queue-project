@@ -20,13 +20,16 @@ class RequestsController < ApplicationController
   end
   
   def destroy
-    Request.find(params[:id]).destroy
-    flash[:success] = "Request Completed"
-    if current_user.student
-      redirect_to user_url
-    elsif current_user.instructor
-      redirect_to requests_url
+    request = Request.find(params[:id]).destroy
+    
+    # redirect to user's profile unless user is an instructor
+    unless current_user.instructor?
+      redirect_to user_url and return
     end
+    
+    # redirect to the selected queue in the manage requests view
+    redirect_to requests_url(queue_type: "#{request.queue_type}")
+    flash[:success] = "Request Completed"
   end
   
   def edit  
