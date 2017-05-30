@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Header */
+
+#appLogo {
+  float: left;
+  margin-right: 10px;
+  font-family: Verdana, sans-serif;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
