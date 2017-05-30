@@ -1,10 +1,11 @@
 <h1>Log in</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3"
+  <div class="col-md-6 col-md-offset-3">
   <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label :camosun_id %>
+    <%= f.label "Camosun Id" %>
     <%= f.text_field :camosun_id, class: 'form-control' %>
     <%= f.submit "Log In", class: 'btn btn-primary' %>
   <% end %>
+  </div>
 </div>
