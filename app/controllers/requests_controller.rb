@@ -34,6 +34,7 @@ class RequestsController < ApplicationController
   end
   
   def create 
+    # Create request belonging to the current user
     @request = Request.new(request_params)
     @request.user_id = current_user.id
     if @request.save
