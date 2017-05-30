@@ -3,28 +3,20 @@
 
 /* mixins, variables, etc. */
 
-$light-grey: #f4f4f4;
-$brown-grey: #393333;
+$light-grey:  #f4f4f4;
+$brown-grey:  #393333;
 $heavy-green: #7ca12e;
-$heavy-grey: #5a5a5a;
-$dark-blue: #3f5f88;
+$heavy-grey:  #5a5a5a;
+$dark-blue:   #3f5f88;
 $light-green: #91bd36;
-$white: #FFFFFF;
-
-
-/* universal */
-body{
-    background:#ddd url(background.jpg) no-repeat center center;
-    background-size: cover;
-    font-family: "NeueHaas",sans-serif;
-}
+$white:       #FFFFFF;
 
 .title{
     margin-top: 60px;
     margin-bottom: 60px;
     h1{
         color: $heavy-grey; 
-        font-family: Verdana, sans-serif;
+        font-family: "NeueHaas",sans-serif;
         font-size: 60px;
         text-align: center;
     }

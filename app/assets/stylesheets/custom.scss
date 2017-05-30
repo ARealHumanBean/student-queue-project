@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$light-grey:  #f4f4f4;
+$brown-grey:  #393333;
+$heavy-green: #7ca12e;
+$heavy-grey:  #5a5a5a;
+$dark-blue:   #3f5f88;
+$light-green: #91bd36;
+$white:       #FFFFFF;
+
+/* universal */
+body{
+    background:#ddd url(background.jpg) no-repeat center center;
+    background-size: cover;
+    font-family: "NeueHaas",sans-serif;
+}
+
+/* Header */
+
+#appLogo {
+  float: left;
+  margin-right: 10px;
+  font-family: Verdana, sans-serif;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
