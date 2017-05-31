@@ -1,11 +1,37 @@
-<h1>Log in</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-  <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label "Camosun Id" %>
-    <%= f.text_field :camosun_id, class: 'form-control' %>
-    <%= f.submit "Log In", class: 'btn btn-primary' %>
-  <% end %>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>SQP</title>
+      <%= stylesheet_link_tag    'application', media: 'all',
+                                                'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= render 'layouts/loginheader' %>
+    <div class="container contents">
+      <div class="row login-screen">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-3 logo">
+          <img alt="Camosun logo" src="/assets/camosun-logo-print.png" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-3">
+            <p> Enter your Camosun ID to login.</p>
+            <p> (e.g. C0123456) </p>
+            <br><br>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="col-md-4 col-md-offset-3">
+          <%= form_for(:session, url: login_path) do |f| %>
+            <%= f.label "Camosun ID:" %>
+            <%= f.text_field :camosun_id, class: 'form-control' %>
+            <br>
+            <%= f.submit "Log In", class: 'btn btn-primary' %>
+          <% end %>
+          </div>
+        </div> <!-- end of form row -->
+      </div> <!-- end of login-screen row -->
+    </div> <!-- end of container -->
+  </body>
+</html>

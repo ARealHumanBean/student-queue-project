@@ -11,6 +11,8 @@ $dark-blue:   #3f5f88;
 $light-green: #91bd36;
 $white:       #FFFFFF;
 
+/* Welcome Page Contents*/
+
 .title{
     margin-top: 60px;
     margin-bottom: 60px;
@@ -29,44 +31,44 @@ $white:       #FFFFFF;
     
 }
 
-
-.logo{
-    width: auto;
-    height: 300px;
-    padding: 10px 10px 10px 10px;
-    background-image: url(blur.png);
-    background-size: cover;
-
-    #team-logo{
-        width: 530px;
-        Height: 220px;
+.welcome{
+    .logo{
+        width: auto;
+        height: 300px;
+        padding: 10px 10px 10px 10px;
+        background-image: url(blur.png);
+        background-size: cover;
+    
+        #team-logo{
+            width: 530px;
+            Height: 220px;
+        }
+        
+        #teamlogo{
+           width: 500px;
+           Height: 223px;
+        }
+        
+        #schoollogo{
+            width: 530px;
+            Height: 220px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        
     }
     
-    #teamlogo{
-       width: 500px;
-       Height: 223px;
-    }
     
-    #schoollogo{
-        width: 530px;
-        Height: 220px;
-        margin-left: 20px;
+    
+    .link{
         margin-top: 20px;
+        p{
+            font-family: sans-serif;
+            font-size: 20px;
+            color: $brown-grey;
+        }
     }
-    
-}
-
-
-
-.link{
-    margin-top: 20px;
-    p{
-        font-family: sans-serif;
-        font-size: 20px;
-        color: $brown-grey;
-    }
-}
-
+}    
 
 /* Hide debug info */
 

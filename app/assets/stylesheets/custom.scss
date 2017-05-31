@@ -18,21 +18,36 @@ body{
     font-family: "NeueHaas",sans-serif;
 }
 
+.contents {
+    margin-top: 120px;
+}
+
 /* Header */
+.navbar-custom{
+    background-color: $heavy-grey;
+}
+
+.navbar{
+   padding-right: 60px;
+   padding-left: 30px;
+}
 
 #appLogo {
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
   font-family: Verdana, sans-serif;
   font-size: 1.7em;
-  color: #fff;
+  color: $white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   
-  &:hover {
-    color: #fff;
-    text-decoration: none;
-  }
+}
+
+#sub-title{
+  padding-top: 9px;
+  font-size: 1.7em;
+  font-family: Verdana, sans-serif;
+  color: $white;
 }
