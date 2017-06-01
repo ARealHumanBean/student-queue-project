@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, :only=>[:new, :create]
-  before_action :require_logged_out, :only=>[:new, :create]
+  before_action :redirect_on_login, :only=>[:new, :create]
   
   def new
   end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   
   private
   
-  def require_logged_out
+  def redirect_on_login
     if logged_in?
       if current_user.instructor?
         redirect_to requests_url
