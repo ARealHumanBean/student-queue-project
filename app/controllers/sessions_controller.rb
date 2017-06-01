@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
       if current_user.instructor?
         redirect_to requests_url
       elsif current_user.student?
-        redirect_to requests/new
+        redirect_to new_request_path
       end
     end
   end
