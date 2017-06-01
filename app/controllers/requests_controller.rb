@@ -5,6 +5,7 @@ class RequestsController < ApplicationController
   
   # Manage Requests view
   def index
+    
     queue_type = params[:queue_type]
     
     if queue_type == "demo"

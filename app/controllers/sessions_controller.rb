@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, :only=>[:new, :create]
+  before_action :require_logged_out, :only=>[:new, :create]
+  
   def new
   end
   
@@ -18,4 +21,17 @@ class SessionsController < ApplicationController
     log_out
     redirect_to root_url
   end
+  
+  private
+  
+  def require_logged_out
+    if logged_in?
+      if current_user.instructor?
+        redirect_to requests_url
+      elsif current_user.student?
+        redirect_to requests/new
+      end
+    end
+  end
+  
 end
