@@ -16,4 +16,16 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  
+  def require_instructor
+    unless current_user.instructor?
+      redirect_to :back, alert => "Access denied."
+    end
+  end
+  
+  def require_student 
+    unless current_user.student?
+      redirect_to :back, alert => "Access denied"
+    end
+  end
 end

@@ -1,11 +1,12 @@
 class RequestsController < ApplicationController
+  before_action :require_instructor, :only=>[:index]
+  before_action :require_student, :only=>[:new, :create]
   def new 
     @request = Request.new
   end
   
   # Manage Requests view
   def index
-    
     queue_type = params[:queue_type]
     
     if queue_type == "demo"
@@ -50,6 +51,6 @@ class RequestsController < ApplicationController
   
   private
     def request_params
-      params.require(:request).permit(:queue_type, :info)
+      params.require(:request).permit(:queue_type, :info, :id)
     end
 end
