@@ -1,3 +1,13 @@
-// Place all the styles related to the Requests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$light-grey:  #f4f4f4;
+$brown-grey:  #393333;
+$heavy-green: #7ca12e;
+$heavy-grey:  #5a5a5a;
+$dark-blue:   #3f5f88;
+$light-green: #91bd36;
+$white:       #FFFFFF;
+$white-trans: rgba(255, 255, 255, 0.4);
