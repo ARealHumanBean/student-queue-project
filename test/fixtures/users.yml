@@ -1,0 +1,13 @@
+instructor:
+  id: 1
+  first_name: "Michael"
+  last_name: "Horie"
+  camosun_id: "C0000001"
+  role: "instructor"
+
+student:
+  id: 2
+  first_name: "Taklan"
+  last_name: "Bukumi"
+  camosun_id: "C0000010"
+  role: "student"
