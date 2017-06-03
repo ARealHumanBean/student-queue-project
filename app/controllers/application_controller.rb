@@ -17,15 +17,17 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # redirect back or to a new request if not an instructor
   def require_instructor
     unless current_user.instructor?
-      redirect_to :back, alert => "Access denied."
+      redirect_back(fallback_location: new_request_path)
     end
   end
   
+  # Redirect back or to manage request if not a student
   def require_student 
     unless current_user.student?
-      redirect_to :back, alert => "Access denied"
+      redirect_back(fallback_location: manage_requests_path)
     end
   end
 end
