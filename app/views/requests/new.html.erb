@@ -1,14 +1,27 @@
-<h1>Create Request</h1>
-
-<div>
-  <%= form_for(@request) do |f| %>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>SQP | Add Request</title>
+      <%= stylesheet_link_tag    'application', media: 'all',
+                                                'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%=render 'layouts/studentheader' %>
     
-    <%= f.label :queue_type %>
-    <%= f.select :queue_type, Request.queue_types.keys.to_a %>
     
-    <%= f.label :info %>
-    <%= f.text_area :info, class: 'form-control' %>
-    
-    <%= f.submit "Submit your Request", class: "btn btn-primary" %>
-  <% end %>
-</div>
+    <div class="container contents">
+      <h1>Create Request</h1>
+      <%= form_for(@request) do |f| %>
+        
+        <%= f.label :queue_type %>
+        <%= f.select :queue_type, Request.queue_types.keys.to_a %>
+        
+        <%= f.label :info %>
+        <%= f.text_area :info, class: 'form-control' %>
+        
+        <%= f.submit "Submit your Request", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  
+  </body>
+</html>
