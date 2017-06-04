@@ -1,30 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>SQP | Add Request</title>
-      <%= javascript_include_tag "application" %>
+      <title>SQP | Submit Request</title>
       <%= stylesheet_link_tag    'application', media: 'all',
-                                                'data-turbolinks-track': 'reload' %>
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <%=render 'layouts/studentheader' %>
     
     
     <div class="container contents">
-      <h1>Create Request</h1>
-      <div class="question"></div>
-      
-      <%= form_for(@request) do |f| %>
+      <h1>Submit Request</h1>
+      <div class="question">
         
-        <%= f.label :queue_type %>
-        <%= f.select :queue_type, Request.queue_types.keys.to_a, :selected => ["question"] %>
+        <button id="question">Question</button>
+        <button id="support">Support</button>
+        <button id="demo">Demo</button>
         
-        <%= f.label :info %>
-        <%= f.text_area :info, class: 'form-control' %>
-        
-        <%= f.submit "Submit your Request", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+        <%= form_for(@request) do |f| %>
+          
+          <label>Question</label>
+          <br>
+          <%= f.hidden_field :queue_type, :value => "question" %>
+          <%= f.label :info %>
+          <%= f.text_area :info, class: 'form-control' %>
+          
+          <%= f.submit "Submit your Request", class: "btn btn-primary" %>
+        <% end %>
+      </div>
   
-  </body>
+      <div class="support">
+          
+          <%= form_for(@request) do |f| %>
+            
+            <label>Support</label>
+            <br>
+            <%= f.hidden_field :queue_type, :value => "support" %>
+            <%= f.label :info %>
+            <%= f.text_area :info, class: 'form-control' %>
+            
+            <%= f.submit "Submit your Request", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        
+        <div class="demo">
+        
+        <%= form_for(@request) do |f| %>
+          
+          <label>Demo</label>
+          <br>
+          <%= f.hidden_field :queue_type, :value => "Demo" %>
+          <%= f.label :info %>
+          <%= f.text_area :info, class: 'form-control' %>
+          
+          <%= f.submit "Submit your Request", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      </div>
+    </body>
 </html>
