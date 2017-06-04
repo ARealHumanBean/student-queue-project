@@ -12,10 +12,12 @@
     
     <div class="container contents">
       <h1>Create Request</h1>
+      <div class="question"></div>
+      
       <%= form_for(@request) do |f| %>
         
         <%= f.label :queue_type %>
-        <%= f.select :queue_type, Request.queue_types.keys.to_a %>
+        <%= f.select :queue_type, Request.queue_types.keys.to_a, :selected => ["question"] %>
         
         <%= f.label :info %>
         <%= f.text_area :info, class: 'form-control' %>
