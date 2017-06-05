@@ -8,11 +8,14 @@
   <body>
     <%=render 'layouts/studentheader' %>
     
-    <div class= "container contents">
+    <div class= "container contents form_bg">
 			<h1>Requested Type: <%= @request.queue_type.capitalize %></h1>
+			<hr>
 			<br>
 			<h3>Request Description</h3>
-			<p><%= @request.info %></p>
+			<textarea readonly = "true", class ="form-control info-box"  ><%=@request.info%>
+			</textarea>
+			<br>
 			<br>
 			<%= link_to "Delete", @request, method: :delete, class: "btn btn-primary" %>
 		</div>
