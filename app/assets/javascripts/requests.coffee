@@ -17,7 +17,7 @@ $ ->
     	$(".support").show()
     	$(".demo").hide()
     	
-		$('.demo').click ->
+		$('#demo').click ->
     	$(".question").hide()
     	$(".support").hide()
     	$(".demo").show()

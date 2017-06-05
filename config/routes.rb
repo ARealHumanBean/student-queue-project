@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
+  get    '/requests/new', to: 'requests#new'
+  
   get '/manage_requests', to: 'requests#index'
   get '/manage_users', to: 'users#index'
   resources :users, :requests

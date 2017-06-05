@@ -11,3 +11,18 @@ $dark-blue:   #3f5f88;
 $light-green: #91bd36;
 $white:       #FFFFFF;
 $white-trans: rgba(255, 255, 255, 0.4);
+
+.form_bg{
+	  padding: 10px 10px 10px 10px;
+    background-color: $white-trans;
+    
+    hr{
+    	border-top: 1px solid $dark-blue;
+    	text-align: center;
+    }
+}
+
+.request_type{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
