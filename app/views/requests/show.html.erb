@@ -1,4 +1,20 @@
-<h1>Requested Type: <%= @request.queue_type %></h1>
-<h3>Request Description</h3>
-<p><%= @request.info %></p>
-<%= link_to "Delete", @request, method: :delete %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SQP | Submit Request</title>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                            'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%=render 'layouts/studentheader' %>
+    
+    <div class= "container contents">
+			<h1>Requested Type: <%= @request.queue_type.capitalize %></h1>
+			<br>
+			<h3>Request Description</h3>
+			<p><%= @request.info %></p>
+			<br>
+			<%= link_to "Delete", @request, method: :delete, class: "btn btn-primary" %>
+		</div>
+	</body>
+</html>
