@@ -3,21 +3,21 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-		$(".question").hide()
+		$(".question").show()
 		$(".support").hide()
 		$(".demo").hide()
   		
 		$('#question').click ->
-    	$(".question").show()
+    	$(".question").fadeIn('slow')
     	$(".support").hide()
     	$(".demo").hide()
     	
 		$('#support').click ->
     	$(".question").hide()
-    	$(".support").show()
+    	$(".support").fadeIn('slow')
     	$(".demo").hide()
     	
 		$('#demo').click ->
     	$(".question").hide()
     	$(".support").hide()
-    	$(".demo").show()
+    	$(".demo").fadeIn('slow')
