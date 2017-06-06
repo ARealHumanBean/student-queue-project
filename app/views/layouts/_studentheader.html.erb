@@ -3,8 +3,8 @@
     <p id ="username"> Logged in As:  <%= @current_user.full_name %></p>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li class="links"><%= link_to "Add Request",   '#' %></li>
-        <li class="links"><%= link_to "Show Request",   '#' %></li>
+        <li class="links"><%= link_to "Add Request", new_request_path %></li>
+        <li class="links"><%= link_to "Show Request", "X" %></li>
         <li class="links"><%= link_to "Log Out", logout_path, method: :delete%></li>
         <li class="sub-title"><h3>Student View</h3></li>
       </ul>
