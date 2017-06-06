@@ -30,4 +30,12 @@ class ApplicationController < ActionController::Base
       redirect_back(fallback_location: manage_requests_path)
     end
   end
+  
+  def redirect_default_page
+    if current_user.instructor?
+      redirect_to manage_requests_path
+    elsif current_user.student?
+      redirect_to new_request_path
+    end
+  end
 end

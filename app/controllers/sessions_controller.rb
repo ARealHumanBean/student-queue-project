@@ -26,11 +26,7 @@ class SessionsController < ApplicationController
   
   def redirect_login
     if logged_in?
-      if current_user.instructor?
-        redirect_to manage_requests_path
-      elsif current_user.student?
-        redirect_to new_request_path
-      end
+      redirect_default_page
     end
   end
   
