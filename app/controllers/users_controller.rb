@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   end
   
   def create
-    
+    CSV.foreach(class_list, :headers => true) do |row|
+      User.create!(row.to_hash)
+    end
   end
   
   def show
@@ -16,9 +18,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    CSV.foreach(class_list, :headers => true) do |row|
-      User.create!(row.to_hash)
-    end
   end
   
   def destroy
