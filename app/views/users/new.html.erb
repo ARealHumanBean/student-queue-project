@@ -1,5 +1,5 @@
-<%= render 'layouts/instructorheader' %>
 
-<% form_for @user do |f| %>
+<%= form_for @user do |f| %>
   <%= f.file_field :class_list %>
+  <%= f.submit "Create users", class: "btn btn-primary" %>
 <% end %>
