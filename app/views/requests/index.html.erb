@@ -3,7 +3,7 @@
   <%= link_to "Demos", requests_path(queue_type: "demo") %>
   <%= link_to "Suport", requests_path(queue_type: "support") %>
 </div>
-
+<% unless @requests.empty? %>
 <div id=queue>
   <% @requests.each do |request| %>
     <div class=request>
@@ -13,4 +13,5 @@
     </div>
     <% end %>
 </div>
+<% end %>
 

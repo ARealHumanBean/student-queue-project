@@ -19,6 +19,10 @@ class RequestsController < ApplicationController
     else
       @requests = Request.question
     end
+    
+    if @requests.empty? 
+      flash[:notice] = "No requests for #{queue_type} are submitted"
+    end
   end
   
   def show
