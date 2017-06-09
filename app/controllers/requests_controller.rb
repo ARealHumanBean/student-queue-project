@@ -60,12 +60,13 @@ class RequestsController < ApplicationController
     
     # Redirect to new request for the current student if the request doesn't 
     # exist or request does not belong to the student. 
-    def require_current_students_request
+    def require_request_exists      
       unless @request
         flash[:notice] = "The request does not exist yet!"
         redirect_default_page
       end
-      
+    end
+    def require_current_students_request
       if current_user.student?
         unless current_user.id == @request.user_id
           flash[:danger] = "You don't have access to that request!"
