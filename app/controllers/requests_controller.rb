@@ -23,6 +23,7 @@ class RequestsController < ApplicationController
   
   def show
     @request = Request.find_by(id: params[:id])
+    require_request_exists
     require_current_students_request
   end
   
@@ -58,14 +59,16 @@ class RequestsController < ApplicationController
       params.require(:request).permit(:queue_type, :info, :id)
     end
     
-    # Redirect to new request for the current student if the request doesn't 
-    # exist or request does not belong to the student. 
+    # Redirect to default page if the request doesn't exist.
     def require_request_exists      
       unless @request
         flash[:notice] = "The request does not exist yet!"
         redirect_default_page
       end
     end
+    
+    # Redirect to a new request if user is a student, and they're accessing a 
+    # request which doesn't belong to them
     def require_current_students_request
       if current_user.student?
         unless current_user.id == @request.user_id
