@@ -5,13 +5,12 @@
 </div>
 
 <div id=queue>
-    <% @requests.each do |request| %>
-      <div class=request>
-        <span class="Submitter_name">Submitter: <%= @request.user.full_name %></span>
-        <span class="request_info"><%= @request.info %></span>
-        <span class="delete_request"><%= link_to "Completed", @request, method: :delete %></span>
-      </div>
-      <% end %>
-  </table>
+  <% @requests.each do |request| %>
+    <div class=request>
+      <span class="Submitter_name">Submitter: <%= request.user.full_name %></span>
+      <span class="request_info"><%= request.info %></span>
+      <span class="delete_request"><%= link_to "Completed", request, method: :delete %></span>
+    </div>
+    <% end %>
 </div>
 
