@@ -1,3 +1,4 @@
+require 'csv'
 class UsersController < ApplicationController
   before_action :require_instructor, :except=>[:show]
   def new
@@ -7,6 +8,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    
   end
   
   def show
@@ -14,6 +16,9 @@ class UsersController < ApplicationController
   end
   
   def edit
+    CSV.foreach(class_list, :headers => true) do |row|
+      User.create!(row.to_hash)
+    end
   end
   
   def destroy
