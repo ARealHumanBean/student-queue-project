@@ -21,7 +21,7 @@ class RequestsController < ApplicationController
     end
     
     if @requests.empty? 
-      flash[:notice] = "No requests for #{queue_type} are submitted"
+      flash[:danger] = "No requests for #{queue_type} are submitted"
     end
   end
   
@@ -66,7 +66,7 @@ class RequestsController < ApplicationController
     # Redirect to default page if the request doesn't exist.
     def require_request_exists      
       unless @request
-        flash[:notice] = "The request does not exist yet!"
+        flash[:danger] = "The request does not exist yet!"
         redirect_default_page
       end
     end

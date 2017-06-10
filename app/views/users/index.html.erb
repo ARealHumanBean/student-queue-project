@@ -1,7 +1,11 @@
+<%= render 'layouts/instructorheader' %>
+<body>
+<div>
 <% @users.each do |user| %>
   <div class=user>
   Name: <%= user.full_name %>
   Camosun Id: <%= user.camosun_id %>
   Role: <%= user.role %>
 <% end %>
-  
+</div>
+</body>
