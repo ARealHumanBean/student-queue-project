@@ -1,73 +1,59 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SQP | Submit Request</title>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                                            'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <%=render 'layouts/studentheader' %>
-    
-    
-    <div class="container contents">
-      <h1>Select your Request Type: </h1>
-      <div class ="request_type row">
-        <div class="col-md-4 text-center">
-          <button class="btn btn-primary" id="question">Question</button>
-        </div>
-        <div class="col-md-4 text-center">
-          <button class="btn btn-primary" id="support">Support</button>
-        </div>
-        <div class="col-md-4 text-center">
-          <button class="btn btn-primary" id="demo">Demo</button>
-        </div>
-      </div>
-      <div class="form_bg">
-        <div class="question">
-          <%= form_for(@request) do |f| %>
-            
-            <h4>Selected Type: Question</h4>
-            <hr>
-            <br>
-            <%= f.hidden_field :queue_type, :value => "question" %>
-            <%= f.label :info %>
-            <%= f.text_area :info, class: 'form-control' %>
-            <br>
-            <%= f.submit "Submit your Request", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-    
-        <div class="support">
-            
-          <%= form_for(@request) do |f| %>
-            
-            <h4>Selected Type: Support</h4>
-            <hr>
-            <br>
-            <%= f.hidden_field :queue_type, :value => "support" %>
-            <%= f.label :info %>
-            <%= f.text_area :info, class: 'form-control' %>
-            <br>
-            <%= f.submit "Submit your Request", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-          
-        <div class="demo">
-        
-          <%= form_for(@request) do |f| %>
-            
-            <h4>Selected Type: Demo</h4>
-            <hr>
-            <br>
-            <%= f.hidden_field :queue_type, :value => "demo" %>
-            <%= f.label :info %>
-            <%= f.text_area :info, class: 'form-control' %>
-            <br>
-            <%= f.submit "Submit your Request", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
+<div class="container contents">
+  <h1>Select your Request Type: </h1>
+  <div class ="request_type row">
+    <div class="col-md-4 text-center">
+      <button class="btn btn-primary" id="question">Question</button>
     </div>
-  </body>
-</html>
+    <div class="col-md-4 text-center">
+      <button class="btn btn-primary" id="support">Support</button>
+    </div>
+    <div class="col-md-4 text-center">
+      <button class="btn btn-primary" id="demo">Demo</button>
+    </div>
+  </div>
+  <div class="form_bg">
+    <div class="question">
+      <%= form_for(@request) do |f| %>
+        
+        <h4>Selected Type: Question</h4>
+        <hr>
+        <br>
+        <%= f.hidden_field :queue_type, :value => "question" %>
+        <%= f.label :info %>
+        <%= f.text_area :info, class: 'form-control' %>
+        <br>
+        <%= f.submit "Submit your Request", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <div class="support">
+        
+      <%= form_for(@request) do |f| %>
+        
+        <h4>Selected Type: Support</h4>
+        <hr>
+        <br>
+        <%= f.hidden_field :queue_type, :value => "support" %>
+        <%= f.label :info %>
+        <%= f.text_area :info, class: 'form-control' %>
+        <br>
+        <%= f.submit "Submit your Request", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+      
+    <div class="demo">
+    
+      <%= form_for(@request) do |f| %>
+        
+        <h4>Selected Type: Demo</h4>
+        <hr>
+        <br>
+        <%= f.hidden_field :queue_type, :value => "demo" %>
+        <%= f.label :info %>
+        <%= f.text_area :info, class: 'form-control' %>
+        <br>
+        <%= f.submit "Submit your Request", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
