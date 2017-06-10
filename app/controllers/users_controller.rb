@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
   
   def index
+    @users = User.all
   end
   
   def create
@@ -26,6 +27,6 @@ class UsersController < ApplicationController
   def import 
     User.import(params[:class_list])
     flash[:notice] = "Class list imported!"
-    redirect_to manage_requests_path
+    redirect_to manage_users_path
   end
 end
