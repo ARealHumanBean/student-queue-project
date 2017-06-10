@@ -1,13 +1,11 @@
-<header class="navbar navbar-fixed-top navbar-custom">
-    <h1 id="appLogo">Student Queue Manager</h1>
-    <p id ="username"> Logged in As:  <%= @current_user.full_name %></p>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="links"><%= link_to "Manage Requests",   manage_requests_path %></li>
-        <li class="links"><%= link_to "Manage Users",   manage_users_path %></li>
-        <li class="links"><%= link_to "Add User",   '#' %></li>
-        <li class="links"><%= link_to "Log Out",   logout_path %></li>
-        <li class="sub-title"><h3>Instructor View</h3></li>
-      </ul>
-    </nav>
-</header>
+<h1 id="appLogo">Student Queue Manager</h1>
+<p id ="username"> Logged in As:  <%= @current_user.full_name %></p>
+<nav>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="links"><%= link_to "Manage Requests",   manage_requests_path %></li>
+    <li class="links"><%= link_to "Manage Users",   manage_users_path %></li>
+    <li class="links"><%= link_to "Add User",   '#' %></li>
+    <li class="links"><%= link_to "Log Out", logout_path, :method => :delete %></li>
+    <li class="sub-title"><h3>Instructor View</h3></li>
+  </ul>
+</nav>

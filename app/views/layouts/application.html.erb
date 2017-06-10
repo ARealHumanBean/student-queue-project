@@ -7,6 +7,17 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <header class="navbar navbar-fixed-top navbar-custom">
+      <% if logged_in? %>
+        <% if current_user.instructor? %>
+          <%= render 'layouts/instructorheader' %>
+        <% elsif current_user.student? %>
+          <%= render 'layouts/studentheader' %>
+        <% end %>
+      <% else %>
+        <%= render 'layouts/loginheader' %>
+      <% end %>
+    </header>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
