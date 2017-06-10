@@ -15,7 +15,15 @@ class User < ApplicationRecord
     self.role ||= :student
   end
   
-  def full_name
+  def self.full_name
     "#{self.first_name} #{self.last_name}"
+  end
+  
+  def self.import(file)
+    @num_users_created = 0
+    CSV.foreach(file.path, headers: true) do |row|
+      user = User.create(camosun_id: row["camosun_id"], role: row["role"], first_name: row["first_name"], last_name: row["last_name"])
+      @num_users_created += 1 if user.persisted?
+    end
   end
 end

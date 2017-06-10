@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   
   get '/manage_requests', to: 'requests#index'
   get '/manage_users', to: 'users#index'
-  resources :users, :requests
+  resources :users do
+    collection {post :import}
+  end
+  resources :requests
   
 end

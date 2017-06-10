@@ -1,5 +1,5 @@
 
-<%= form_for @user do |f| %>
-  <%= f.file_field :class_list %>
-  <%= f.submit "Create users", class: "btn btn-primary" %>
+<%= form_tag import_users_path, multipart: true do %>
+  <%= file_field_tag :class_list %>
+  <%= submit_tag "Import Class List", class: "btn btn-primary" %>
 <% end %>

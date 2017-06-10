@@ -1,5 +1,5 @@
-require 'csv'
 class UsersController < ApplicationController
+  
   before_action :require_instructor, :except=>[:show]
   def new
     @user = User.new
@@ -9,11 +9,9 @@ class UsersController < ApplicationController
   end
   
   def create
-    class_list = params[:user][:class_list]
-    CSV.foreach(class_list, :headers => true) do |row|
-      User.create!(row.to_hash)
-    end
   end
+  
+
   
   def show
     @user = User.find(params[:id])
@@ -23,5 +21,11 @@ class UsersController < ApplicationController
   end
   
   def destroy
+  end
+  
+  def import 
+    User.import(params[:class_list])
+    flash[:notice] = "Class list imported!"
+    redirect_to manage_requests
   end
 end
