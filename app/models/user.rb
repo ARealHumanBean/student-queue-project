@@ -15,7 +15,7 @@ class User < ApplicationRecord
     self.role ||= :student
   end
   
-  def self.full_name
+  def full_name
     "#{self.first_name} #{self.last_name}"
   end
   

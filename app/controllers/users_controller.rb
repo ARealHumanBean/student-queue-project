@@ -26,6 +26,6 @@ class UsersController < ApplicationController
   def import 
     User.import(params[:class_list])
     flash[:notice] = "Class list imported!"
-    redirect_to manage_requests
+    redirect_to manage_requests_path
   end
 end
