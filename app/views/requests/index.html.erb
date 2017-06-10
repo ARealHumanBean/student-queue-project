@@ -1,17 +1,17 @@
-<div id=queue_types>
-  <%= link_to "Questions", requests_path(queue_type: "question") %>
-  <%= link_to "Demos", requests_path(queue_type: "demo") %>
-  <%= link_to "Suport", requests_path(queue_type: "support") %>
-</div>
-<% unless @requests.empty? %>
+<ul id=queue_types>
+  <li><%= link_to "Question", requests_path(queue_type: "question") %></li>
+  <li><%= link_to "Demo", requests_path(queue_type: "demo") %></li>
+  <li><%= link_to "Suport", requests_path(queue_type: "support") %></li>
+</ul>
+<% #unless @requests.empty? %>
 <div id=queue>
   <% @requests.each do |request| %>
-    <div class=request>
-      <span class="Submitter_name">Submitter: <%= request.user.full_name %></span>
-      <span class="request_info"><%= request.info %></span>
-      <span class="delete_request"><%= link_to "Completed", request, method: :delete %></span>
-    </div>
+    <ul class=request>
+      <li class="Submitter_name">Submitter: <%= request.user.full_name %></li>
+      <li class="request_info"><%= request.info %></li>
+      <li class="delete_request"><%= link_to "Completed", request, method: :delete %></li>
+    </ul>
     <% end %>
 </div>
-<% end %>
+<% #end %>
 
