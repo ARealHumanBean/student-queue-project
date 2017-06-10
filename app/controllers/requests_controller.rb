@@ -36,7 +36,7 @@ class RequestsController < ApplicationController
     
     # redirect to user's profile unless user is an instructor at this point
     unless current_user.instructor?
-      redirect_to user_url and return
+      redirect_to new_request_path and return
     end
     
     # redirect to the selected queue in the manage requests view
