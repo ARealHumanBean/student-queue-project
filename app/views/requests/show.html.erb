@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SQP | Submit Request</title>
-    <%= stylesheet_link_tag    'application', media: 'all'%>
-  </head>
-  <body>
-   
-    
-    <div class= "container contents form_bg">
-			<h1>Requested Type: <%= @request.queue_type.capitalize %></h1>
-			<hr>
-			<br>
-			<h3>Request Description</h3>
-			<textarea readonly = "true", class ="form-control info-box"  ><%=@request.info%>
-			</textarea>
-			<br>
-			<br>
-			<div class="text-center">
-				<%= link_to "Delete", @request, method: :delete, class: "btn btn-primary" %>
-			</div>
-		</div>
-	</body>
-</html>
+<div class= "container contents form_bg">
+	<h2>Requested Type: <%= @request.queue_type.capitalize %></h2>
+	<hr>
+	<br>
+	<h4>Request Description</h4>
+	<textarea readonly = "true", class ="form-control info-box"  ><%=@request.info%>
+	</textarea>
+	<br>
+	<br>
+	<div class="text-center">
+		<%= link_to "Delete", @request, method: :delete, class: "btn btn-primary" %>
+	</div>
+</div>

@@ -1,5 +1,18 @@
-
-<%= form_tag import_users_path, multipart: true do %>
-  <%= file_field_tag :class_list %>
-  <%= submit_tag "Import Class List", class: "btn btn-primary" %>
-<% end %>
+<div class="container contents">
+  <div class="form_bg">
+    <h2>Add Users</h2>
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+        <%= form_tag import_users_path, multipart: true do %>
+          <%= file_field_tag :class_list %>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+      <%= submit_tag "Import Class List", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+</div>

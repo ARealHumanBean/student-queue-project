@@ -13,7 +13,7 @@
   
   <% #unless @requests.empty? %>
   <div class="form_bg">
-    <h4>Selected Type: <%= params[:queue_type].titleize %></h4>
+    <h2>Selected Type: <%= params[:queue_type].titleize %></h2>
     <hr>
     <ul class="accordion">
       <% @requests.each do |request| %>
