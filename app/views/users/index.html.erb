@@ -1,6 +1,14 @@
-<% @users.each do |user| %>
-  <div class=user>
-  Name: <%= user.full_name %>
-  Camosun Id: <%= user.camosun_id %>
-  Role: <%= user.role %>
-<% end %>
+<div class = "container contents">
+<div class = "form_bg">
+  <h4>Manage Users</h4>
+  <hr>
+  <% @users.each do |user| %>
+    <div class="user">
+      <b>Camosun Id:</b> <%= user.camosun_id %>&nbsp;&nbsp;
+      <b>Name:</b> <%= user.full_name %>&nbsp;&nbsp;
+      <b>Role:</b> <%= user.role %>&nbsp;&nbsp;
+    </div>
+    <br>
+  <% end %>
+</div>
+</div>
