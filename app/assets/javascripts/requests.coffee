@@ -21,3 +21,21 @@ $(document).on 'ready page:load', ->
     	$(".question").hide()
     	$(".support").hide()
     	$(".demo").fadeIn('slow')
+
+$ ->
+  $('.accordion').find('.theme').click ->
+    $(this).next('.abstract').slideToggle 'fast', ->
+      curr = $(this).prev('div').children('h4')
+      curr.toggleClass 'active'
+      if curr.hasClass('active')
+        curr.children('b').css
+          'border-top-color': '#333333'
+          'border-left-color': 'transparent'
+      else
+        curr.children('b').css
+          'border-top-color': 'transparent'
+          'border-left-color': '#555555'
+      return
+    return
+  return
+

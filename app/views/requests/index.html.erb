@@ -1,17 +1,37 @@
-<ul id=queue_types>
-  <li><%= link_to "Question", requests_path(queue_type: "question") %></li>
-  <li><%= link_to "Demo", requests_path(queue_type: "demo") %></li>
-  <li><%= link_to "Suport", requests_path(queue_type: "support") %></li>
-</ul>
-<% #unless @requests.empty? %>
-<div id=queue>
-  <% @requests.each do |request| %>
-    <ul class=request>
-      <li class="Submitter_name">Submitter: <%= request.user.full_name %></li>
-      <li class="request_info"><%= request.info %></li>
-      <li class="delete_request"><%= link_to "Completed", request, method: :delete %></li>
+<div class = "container contents">
+  <div class ="request_type row">
+    <div class="col-md-4 text-center">
+      <button class="btn btn-primary" id="question"><%= link_to "Question", requests_path(queue_type: "question") %></button>
+    </div>
+    <div class="col-md-4 text-center">
+      <button class="btn btn-primary" id="support"><%= link_to "Suport", requests_path(queue_type: "support") %></button>
+    </div>
+    <div class="col-md-4 text-center">
+      <button class="btn btn-primary" id="demo"><%= link_to "Demo", requests_path(queue_type: "demo") %></button>
+    </div>
+  </div>
+  
+  <% #unless @requests.empty? %>
+  <div class="form_bg">
+    <h4>Selected Type: <%= params[:queue_type].titleize %></h4>
+    <hr>
+    <ul class="accordion">
+      <% @requests.each do |request| %>
+      
+      <li>
+        <div class="theme">
+          <h4><b class="arrow"></b>Submitter: <%=request.user.full_name%></h4>
+        </div>
+        <div class="abstract">
+          
+            <textarea readonly = "true", class ="form-control info-box"  ><%= request.info %></textarea>
+            <br>
+            <%= link_to "Complete", @request, method: :delete, class: "btn btn-primary pull-right" %>
+        </div>
+      </li>
+      <br>
+      <% end %>
     </ul>
-    <% end %>
-</div>
+  </div>
 <% #end %>
 

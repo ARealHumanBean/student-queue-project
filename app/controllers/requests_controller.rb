@@ -12,6 +12,7 @@ class RequestsController < ApplicationController
   def index
     queue_type = params[:queue_type]
     
+    
     if queue_type == "demo"
       @requests = Request.demo
     elsif queue_type == "support"

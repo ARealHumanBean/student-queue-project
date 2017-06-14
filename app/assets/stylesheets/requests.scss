@@ -15,6 +15,7 @@ $white-trans: rgba(255, 255, 255, 0.4);
 .form_bg{
 	  padding: 10px 10px 10px 10px;
     background-color: $white-trans;
+    min-height: 250px;
     
     hr{
     	border-top: 1px solid $dark-blue;
@@ -25,9 +26,66 @@ $white-trans: rgba(255, 255, 255, 0.4);
     		width: 100%;
     		height: 150px;
     }
+
 }
 
 .request_type{
 	margin-top: 5px;
 	margin-bottom: 10px;
+	
+	a{
+	    color: $white;
+	}
+}
+
+h1 {
+  padding-left: 1.2em;
+}
+.accordion {
+  list-style: none;
+}
+.accordion .abstract {
+    display: none;
+    padding: 20px 15px 10px 15px;
+    background-color: $white;
+    border-radius: 0.15em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $dark-blue;
+    min-height: 240px;
+}
+
+.accordion .theme{
+    width: 100%;
+    display: block;
+    background-color:$white;
+    padding-top: 6px;
+    border-radius: 0.15em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $dark-blue;
+    border-left: 5px solid $dark-blue;
+    transition: background .3s ease;
+    min-height: 50px;
+}
+
+.accordion .theme>h4 {
+  color: $brown-grey;
+}
+.accordion .theme:hover {
+  background-color: $dark-blue;
+  cursor: pointer
+}
+.accordion .theme>h3.active {
+  color: #333333;
+}
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border: 0.3em solid transparent;
+  border-left-color: #555555;
+  content: "";
+  margin: 0 1.5em 0 1em;
 }

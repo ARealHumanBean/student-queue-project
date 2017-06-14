@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag    'application', media: 'all'%>
   </head>
   <body>
-    <%=render 'layouts/studentheader' %>
+   
     
     <div class= "container contents form_bg">
 			<h1>Requested Type: <%= @request.queue_type.capitalize %></h1>
@@ -16,7 +16,9 @@
 			</textarea>
 			<br>
 			<br>
-			<%= link_to "Delete", @request, method: :delete, class: "btn btn-primary" %>
+			<div class="text-center">
+				<%= link_to "Delete", @request, method: :delete, class: "btn btn-primary" %>
+			</div>
 		</div>
 	</body>
 </html>
