@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   get    '/requests/new', to: 'requests#new'
-  
   get '/manage_requests', to: 'requests#index'
+  
   get '/manage_users', to: 'users#index'
   resources :users do
     collection {post :import}
