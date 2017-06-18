@@ -1,23 +1,18 @@
 <div class = "container contents">
   <div class ="request_type row">
     <div class="col-md-4 text-center">
-      <button class="btn btn-primary" id="question"><%= link_to "Question", requests_path(queue_type: "question") %></button>
+      <button class="btn btn-primary" id="question">Question</button>
     </div>
     <div class="col-md-4 text-center">
-      <button class="btn btn-primary" id="support"><%= link_to "Suport", requests_path(queue_type: "support") %></button>
+      <button class="btn btn-primary" id="support">Support</button>
     </div>
     <div class="col-md-4 text-center">
-      <button class="btn btn-primary" id="demo"><%= link_to "Demo", requests_path(queue_type: "demo") %></button>
+      <button class="btn btn-primary" id="demo">Demo</button>
     </div>
   </div>
+
+<div class="form_bg">
+  <%= render partial: "requests_types" %>
+</div>
   
-  <% unless @requests.empty? %>
-  <div class="form_bg">
-    <h2>Selected Type: <%= params[:queue_type].titleize %></h2>
-    <hr>
-    <ul class="accordion" id="requests">
-      <%= render @requests %>
-    </ul>
-  </div>
-<% end %>
 

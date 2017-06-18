@@ -11,15 +11,7 @@ class RequestsController < ApplicationController
   # Manage Requests view
   def index
     queue_type = params[:queue_type]
-    
-    
-    if queue_type == "demo"
-      @requests = Request.demo
-    elsif queue_type == "support"
-      @requests = Request.support
-    else
-      @requests = Request.question
-    end
+    @requests = Request.all
     
     if @requests.empty? 
       flash[:danger] = "No requests for #{queue_type} are submitted"
