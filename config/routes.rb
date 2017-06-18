@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   get    '/requests/new', to: 'requests#new'
-  
   get '/manage_requests', to: 'requests#index'
+  
+  get "/from_queue_type" => 'requests#from_queue_type', as: 'from_queue_type'
+  
   get '/manage_users', to: 'users#index'
   resources :users do
     collection {post :import}

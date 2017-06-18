@@ -1,23 +1,7 @@
-<div class="question">
-  <h2>Selected Type: Question</h2>
+<div>
+  <h2>Selected Type: <%= queue_type.titleize %></h2>
   <hr>
   <ul class="accordion" id="requests">
-    <%= render @requests.question %>
-  </ul>
-</div>
-
-<div class="support">
-  <h2>Selected Type: Support</h2>
-  <hr>
-  <ul class="accordion" id="requests">
-    <%= render @requests.support %>
-  </ul>
-</div>
-
-<div class="demo">
-  <h2>Selected Type: Demo</h2>
-  <hr>
-  <ul class="accordion" id="requests">
-    <%= render @requests.demo %>
+    <%= render requests %>
   </ul>
 </div>
