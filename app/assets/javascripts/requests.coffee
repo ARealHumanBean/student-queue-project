@@ -6,7 +6,6 @@ $(document).on 'ready page:load', ->
   if $('#manage_requests_page').length > 0
     setInterval refresh_requests_partial, 5000
   
-  
 	$(".question").show()
 	$(".support").hide()
 	$(".demo").hide()
