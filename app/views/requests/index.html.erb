@@ -15,7 +15,7 @@
   <div class="form_bg">
     <h2>Selected Type: <%= params[:queue_type].titleize %></h2>
     <hr>
-    <ul class="accordion">
+    <ul class="accordion" id="requests">
       <%= render @requests %>
     </ul>
   </div>
