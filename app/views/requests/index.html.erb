@@ -16,21 +16,7 @@
     <h2>Selected Type: <%= params[:queue_type].titleize %></h2>
     <hr>
     <ul class="accordion">
-      <% @requests.each do |request| %>
-      
-      <li>
-        <div class="theme">
-          <h4><b class="arrow"></b>Submitter: <%=request.user.full_name%></h4>
-        </div>
-        <div class="abstract">
-          
-            <textarea readonly = "true", class ="form-control info-box"  ><%= request.info %></textarea>
-            <br>
-            <%= link_to "Complete", @request, method: :delete, class: "btn btn-primary pull-right" %>
-        </div>
-      </li>
-      <br>
-      <% end %>
+      <%= render @requests %>
     </ul>
   </div>
 <% #end %>
