@@ -3,24 +3,27 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', -> 
-		$(".question").show()
-		$(".support").hide()
-		$(".demo").hide()
-  		
-		$('#question').click ->
-    	$(".question").fadeIn('slow')
-    	$(".support").hide()
-    	$(".demo").hide()
-    	
-		$('#support').click ->
-    	$(".question").hide()
-    	$(".support").fadeIn('slow')
-    	$(".demo").hide()
-    	
-		$('#demo').click ->
-    	$(".question").hide()
-    	$(".support").hide()
-    	$(".demo").fadeIn('slow')
+  if $('#manage_requests_page').length > 0
+    setInterval refresh_requests_partial, 5000
+  
+	$(".question").show()
+	$(".support").hide()
+	$(".demo").hide()
+		
+	$('#question').click ->
+  	$(".question").fadeIn('slow')
+  	$(".support").hide()
+  	$(".demo").hide()
+  	
+	$('#support').click ->
+  	$(".question").hide()
+  	$(".support").fadeIn('slow')
+  	$(".demo").hide()
+  	
+	$('#demo').click ->
+  	$(".question").hide()
+  	$(".support").hide()
+  	$(".demo").fadeIn('slow')
 
 $ ->
   $('.accordion').find('.theme').click ->
@@ -39,3 +42,6 @@ $ ->
     return
   return
 
+refresh_requests_partial = ->
+  $.ajax url:"/manage_requests.js"
+  return

@@ -1,18 +1,18 @@
-<div class = "container contents">
-  <div class ="request_type row">
+<div class="container contents" id="manage_requests_page">
+  <div class="request_type row">
     <div class="col-md-4 text-center">
-      <button class="btn btn-primary" id="question">Question</button>
+        <%= link_to "Question", manage_requests_path(queue_type: "question"), 
+          {class:"btn btn-primary"} %>
     </div>
     <div class="col-md-4 text-center">
-      <button class="btn btn-primary" id="support">Support</button>
+        <%= link_to "Support", manage_requests_path(queue_type: "support"), 
+          {class:"btn btn-primary"} %>
     </div>
     <div class="col-md-4 text-center">
-      <button class="btn btn-primary" id="demo">Demo</button>
+        <%= link_to "Demo", manage_requests_path(queue_type: "demo"), 
+          {class:"btn btn-primary"} %>
     </div>
   </div>
-
-<div class="form_bg">
-  <%= render partial: "requests_types" %>
+<div class="form_bg" id="requests">
+  <%= render partial: 'requests_for_queue_type' %>
 </div>
-  
-
