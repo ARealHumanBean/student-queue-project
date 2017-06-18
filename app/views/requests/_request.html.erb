@@ -1,12 +1,12 @@
-
+<% unless request.blank? %>
 <li class="request">
   <div class="theme">
-    <h4><b class="arrow"></b>Submitter: <%=request.user.full_name%></h4>
+    <h4><b class="arrow"></b>Submitter: <%= request.user.full_name %></h4>
   </div>
   <div class="abstract">
-    
-      <textarea readonly = "true", class ="form-control info-box"  ><%= request.info %></textarea>
-      <br>
-      <%= link_to "Complete", request, method: :delete, class: "btn btn-primary pull-right" %>
+    <textarea readonly = "true", class ="form-control info-box"><%= request.info %></textarea>
+    <br>
+    <%= link_to "Complete", request, method: :delete, class: "btn btn-primary pull-right" %>
   </div>
 </li>
+<% end %>
