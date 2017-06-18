@@ -60,10 +60,6 @@ class RequestsController < ApplicationController
   def edit  
   end
   
-  def from_queue_type
-    @requests = Request.all
-  end
-  
   private
     def request_params
       params.require(:request).permit(:queue_type, :info, :id)

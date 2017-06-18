@@ -3,6 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', -> 
+  if $('#manage_requests_page').length > 0
+    setInterval refresh_requests_partial, 5000
+  
+  
 	$(".question").show()
 	$(".support").hide()
 	$(".demo").hide()
@@ -39,3 +43,6 @@ $ ->
     return
   return
 
+refresh_requests_partial = ->
+  $.ajax url:"/manage_requests.js"
+  return

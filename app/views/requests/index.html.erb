@@ -1,5 +1,5 @@
-<div class = "container contents">
-  <div class ="request_type row">
+<div class="container contents" id="manage_requests_page">
+  <div class="request_type row">
     <div class="col-md-4 text-center">
         <%= link_to "Question", manage_requests_path(queue_type: "question"), 
           {class:"btn btn-primary"} %>
@@ -13,7 +13,6 @@
           {class:"btn btn-primary"} %>
     </div>
   </div>
-<%= link_to "refresh", from_queue_type_path, :remote => true  %>
 <div class="form_bg" id="requests">
-  <%= render partial: 'requests_types', locals: {requests: @requests, queue_type: @queue_type} %>
+  <%= render partial: 'requests_types' %>
 </div>
