@@ -1,0 +1,29 @@
+<div class="question">
+  <h2>Selected Type: Question</h2>
+  <hr>
+  <% unless @requests.question.empty? %>
+    <ul class="accordion" id="requests">
+      <%= render @requests.question %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="support">
+  <h2>Selected Type: Support</h2>
+  <hr>
+  <% unless @requests.support.empty? %>
+    <ul class="accordion" id="requests">
+      <%= render @requests.support %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="demo">
+  <h2>Selected Type: Demo</h2>
+  <hr>
+  <% unless @requests.demo.empty? %>
+    <ul class="accordion" id="requests">
+      <%= render @requests.demo %>
+    </ul>
+  <% end %>
+</div>
