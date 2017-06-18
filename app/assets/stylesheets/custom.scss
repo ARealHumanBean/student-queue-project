@@ -13,8 +13,13 @@ $white:       #FFFFFF;
 
 /* universal */
 body{
-    background:#ddd url(background.png) no-repeat center center;
+    
+    background-image: url(background.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
+    background-color: $light-green;
     font-family: "NeueHaas",sans-serif;
 }
 
