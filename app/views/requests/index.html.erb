@@ -11,7 +11,7 @@
     </div>
   </div>
   
-  <% #unless @requests.empty? %>
+  <% unless @requests.empty? %>
   <div class="form_bg">
     <h2>Selected Type: <%= params[:queue_type].titleize %></h2>
     <hr>
@@ -19,5 +19,5 @@
       <%= render @requests %>
     </ul>
   </div>
-<% #end %>
+<% end %>
 
