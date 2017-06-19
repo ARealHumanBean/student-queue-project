@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :require_instructor, :only=>[:index]
   before_action :require_student, :only=>[:new, :create]
+  
   def new 
     if current_user.request
       redirect_to current_user.request
@@ -17,9 +18,9 @@ class RequestsController < ApplicationController
     
     @requests = Request.where(queue_type: @queue_type)
     
-    #if @requests.empty? 
-    #  flash[:danger] = "No requests for #{@queue_type} are submitted"
-    #end
+    if @requests.empty? 
+      flash[:danger] = "No requests for #{@queue_type} are submitted"
+    end
     
     respond_to do |format|
       format.html
@@ -60,6 +61,13 @@ class RequestsController < ApplicationController
   end
   
   def edit  
+  end
+  
+  def destroy_all
+    Requests.delete_all
+  end
+  
+  def destroy_all_current_queue_type
   end
   
   private
