@@ -22,7 +22,16 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    #user.destroy
+    if user = User.find_by(id: params[:id])
+      user.destroy 
+    end
+    redirect_to :back
+  end
+  
+  def delete_all
+    User.delete_all(:role => "student")
+    flash[:notice] = "You have removed all results!"
+    redirect_to :back
   end
   
   def import 

@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get '/manage_users', to: 'users#index'
   resources :users do
     collection {post :import}
+    collection do 
+      get 'delete_all'
+    end
   end
   resources :requests
+  #map.resources :users, :collection => { :delete_all => :get }
   
 end
