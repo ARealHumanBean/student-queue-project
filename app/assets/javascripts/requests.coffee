@@ -2,9 +2,36 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+requests_drop_down = ->
+    $('.accordion').find('.theme').click ->
+      $(this).next('.abstract').slideToggle 'fast', ->
+        curr = $(this).prev('div').children('h4')
+        curr.toggleClass 'active'
+        if curr.hasClass('active')
+          curr.children('b').css
+            'border-top-color': '#333333'
+            'border-left-color': 'transparent'
+        else
+          curr.children('b').css
+            'border-top-color': 'transparent'
+            'border-left-color': '#555555'
+        return
+      return
+    return
+
+refresh_requests_partial = ->
+  $.ajax ({
+    url:"/manage_requests.js"
+    context: document.body, 
+    success: (data) ->
+      requests_drop_down()
+    })
+  return
+
 $(document).on 'ready page:load', -> 
   if $('#manage_requests_page').length > 0
     setInterval refresh_requests_partial, 5000
+    
   
 	$(".question").show()
 	$(".support").hide()
@@ -25,23 +52,10 @@ $(document).on 'ready page:load', ->
   	$(".support").hide()
   	$(".demo").fadeIn('slow')
 
+
+
+
 $ ->
-  $('.accordion').find('.theme').click ->
-    $(this).next('.abstract').slideToggle 'fast', ->
-      curr = $(this).prev('div').children('h4')
-      curr.toggleClass 'active'
-      if curr.hasClass('active')
-        curr.children('b').css
-          'border-top-color': '#333333'
-          'border-left-color': 'transparent'
-      else
-        curr.children('b').css
-          'border-top-color': 'transparent'
-          'border-left-color': '#555555'
-      return
-    return
+  requests_drop_down()
   return
 
-refresh_requests_partial = ->
-  $.ajax url:"/manage_requests.js"
-  return
