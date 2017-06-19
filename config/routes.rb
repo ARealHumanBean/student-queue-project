@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users do
     collection {post :import}
     collection do 
-      get 'delete_all'
+      get 'destroy_all'
     end
   end
   resources :requests

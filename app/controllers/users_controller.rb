@@ -28,8 +28,8 @@ class UsersController < ApplicationController
     redirect_to :back
   end
   
-  def delete_all
-    User.delete_all(:role => "student")
+  def destroy_all
+    User.destroy_all(:role => "student")
     flash[:notice] = "You have removed all results!"
     redirect_to :back
   end
