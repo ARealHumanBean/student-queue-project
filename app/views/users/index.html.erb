@@ -8,12 +8,12 @@
       <b>Camosun Id:</b> <%= user.camosun_id %>&nbsp;&nbsp;
       <b>Name:</b> <%= user.full_name %>&nbsp;&nbsp;
       <b>Role:</b> <%= user.role %>&nbsp;&nbsp;
-      <%= link_to "Delete", user, method: :delete, class: "btn btn-primary pull-right" %>
+      <%= link_to "Delete", user, method: :delete, :data => {:confirm => "Are you sure? \n[Caution!] This will also delete this user's request."}, class: "btn btn-danger pull-right" %>
     </div>
     <br>
   <% end %>
   <div class= "text-center">
-    <%= link_to "Delete All Students", destroy_all_users_path, :method => :get, :data => {:confirm => 'Are you sure?'}, class: "btn btn-primary" %>
+    <%= link_to "Delete All Students", destroy_all_users_path, :method => :get, :data => {:confirm => "Are you sure? \n[Caution!] This will also delete all the requests."}, class: "btn btn-danger" %>
   </div>
 </div>
 </div>
