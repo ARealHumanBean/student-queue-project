@@ -2,7 +2,11 @@
 
 <div class="container contents" id="manage_requests_page">
   <%= render partial: 'queue_types' %>
+
   <div class="form_bg" id="requests">
     <%= render partial: 'requests_for_queue_type' %>
+
   </div>
+  <%= render partial: 'delete_options' %>
+  
 </div>
