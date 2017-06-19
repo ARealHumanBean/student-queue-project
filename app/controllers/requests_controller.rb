@@ -64,10 +64,11 @@ class RequestsController < ApplicationController
   end
   
   def destroy_all
-    Requests.delete_all
+    Request.delete_all
   end
   
-  def destroy_all_current_queue_type
+  def destroy_all_current_type
+    Request.delete_all ["queue_type = ?", @queue_type]
   end
   
   private

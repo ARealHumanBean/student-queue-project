@@ -14,5 +14,10 @@ Rails.application.routes.draw do
     collection {post :import}
   end
   
-  resources :requests
+  resources :requests do 
+    collection do 
+      delete 'destroy_all'
+      delete 'destroy_all_current_type'
+    end
+  end
 end
