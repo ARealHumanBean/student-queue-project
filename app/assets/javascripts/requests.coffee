@@ -1,7 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
+count = 0
 requests_drop_down = ->
     $('.accordion').find('.theme').click ->
       $(this).next('.abstract').slideToggle 'fast', ->
@@ -19,20 +19,23 @@ requests_drop_down = ->
       return
     return
 
+active_request = ->
+  return $('.accordion .active').length > 0
+
 refresh_requests_partial = ->
-  $.ajax ({
-    url:"/manage_requests.js"
-    context: document.body, 
-    success: (data) ->
-      requests_drop_down()
+  if not active_request()
+    $.ajax ({
+      url:"/manage_requests.js"
+      context: document.body, 
+      success: (data) ->
+        requests_drop_down()
     })
   return
 
 $(document).on 'ready page:load', -> 
   if $('#manage_requests_page').length > 0
     setInterval refresh_requests_partial, 5000
-    
-  
+
 	$(".question").show()
 	$(".support").hide()
 	$(".demo").hide()
@@ -51,9 +54,6 @@ $(document).on 'ready page:load', ->
   	$(".question").hide()
   	$(".support").hide()
   	$(".demo").fadeIn('slow')
-
-
-
 
 $ ->
   requests_drop_down()
