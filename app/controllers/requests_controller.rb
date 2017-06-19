@@ -17,9 +17,9 @@ class RequestsController < ApplicationController
     
     @requests = Request.where(queue_type: @queue_type)
     
-    if @requests.empty? 
-      flash[:danger] = "No requests for #{@queue_type} are submitted"
-    end
+    #if @requests.empty? 
+    #  flash[:danger] = "No requests for #{@queue_type} are submitted"
+    #end
     
     respond_to do |format|
       format.html
@@ -34,7 +34,9 @@ class RequestsController < ApplicationController
   end
   
   def destroy
-    request = Request.find(params[:id]).destroy
+    if request = Request.find_by(id: params[:id])
+      request.destroy 
+    end
     
     # redirect to user's profile unless user is an instructor at this point
     unless current_user.instructor?
