@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
+    #user.destroy
   end
   
   def import 

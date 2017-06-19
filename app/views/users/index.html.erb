@@ -8,6 +8,7 @@
       <b>Camosun Id:</b> <%= user.camosun_id %>&nbsp;&nbsp;
       <b>Name:</b> <%= user.full_name %>&nbsp;&nbsp;
       <b>Role:</b> <%= user.role %>&nbsp;&nbsp;
+      <%= link_to "Delete", user, method: :delete, class: "btn btn-primary pull-right" %>
     </div>
     <br>
   <% end %>
