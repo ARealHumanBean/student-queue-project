@@ -1,6 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
 get_params = ->
   query = window.location.search.substring(1)
   raw_vars = query.split("&")
@@ -12,8 +13,6 @@ get_params = ->
     params[key] = decodeURIComponent(val)
 
   params
-
-console.log(get_params())
 
 requests_drop_down = ->
     $('.accordion').find('.theme').click ->
@@ -36,7 +35,7 @@ active_request = ->
   return $('.accordion .active').length > 0
 
 refresh_requests_partial = ->
-  if not active_request()
+  unless active_request()
     $.ajax ({
       url:"/manage_requests.js?queue_type=" + get_params().queue_type
       context: document.body, 
