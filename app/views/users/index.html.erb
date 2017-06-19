@@ -13,7 +13,7 @@
     <br>
   <% end %>
   <div class= "text-center">
-    <%= link_to "Delete All Students", delete_all_users_path, :method => :get, class: "btn btn-primary" %>
+    <%= link_to "Delete All Students", delete_all_users_path, :method => :get, :data => {:confirm => 'Are you sure?'}, class: "btn btn-primary" %>
   </div>
 </div>
 </div>
