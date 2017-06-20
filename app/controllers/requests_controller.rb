@@ -1,5 +1,7 @@
 class RequestsController < ApplicationController
-  before_action :require_instructor, :only=>[:index]
+  before_action :require_instructor, :only=>[
+    :index, :destroy_all, :destroy_all_current_type
+  ]
   before_action :require_student, :only=>[:new, :create]
   
   def new 
@@ -11,10 +13,7 @@ class RequestsController < ApplicationController
   
   # Manage Requests view
   def index
-    @queue_type = params[:queue_type]
-    unless ["question", "support", "demo"].include?(@queue_type)
-      @queue_type = "question"
-    end
+    set_queue_type
     
     @requests = Request.where(queue_type: @queue_type)
     
@@ -67,8 +66,10 @@ class RequestsController < ApplicationController
     Request.destroy_all
   end
   
-  def destroy_all_current_type
-    Request.destroy_all ["queue_type = ?", @queue_type]
+  def destroy_all_current_queue_type
+    set_queue_type
+    Request.where(queue_type: @queue_type).destroy_all
+    redirect_back fallback_location 
   end
   
   private
@@ -92,6 +93,13 @@ class RequestsController < ApplicationController
           flash[:danger] = "You don't have access to that request!"
           redirect_back(fallback_location: new_request_path)
         end
+      end
+    end
+    
+    def set_queue_type
+      @queue_type = params[:queue_type]
+      unless ["question", "support", "demo"].include?(@queue_type)
+        @queue_type = "question"
       end
     end
 end

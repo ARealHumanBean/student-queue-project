@@ -1,2 +1,10 @@
-<%= link_to "Remove #{@queue_type.titleize} Requests", destroy_all_current_type_requests_path, {class:'btn btn-danger'} %>
-<%= link_to "Remove All Requests", destroy_all_requests_path, {class:'btn btn-danger'} %>
+<%= link_to(
+  "Remove #{@queue_type.titleize} Requests", 
+  destroy_all_current_queue_type_requests_path, 
+  data: {confirm: "Are you sure?"},
+  class:'btn btn-danger')%>
+<%= link_to(
+  "Remove All Requests", 
+  destroy_all_requests_path, 
+  data: {confirm: "Are you sure?"}, 
+  class:'btn btn-danger') %>
