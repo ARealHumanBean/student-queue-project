@@ -13,9 +13,8 @@ Rails.application.routes.draw do
   
   resources :requests do 
     collection do 
-      delete "destroy_all", to: "requests#destroy_all"
-      delete "destroy_all_current_queue_type", 
-        to: "requests#destroy_all_current_queue_type"
+      delete 'destroy_all'
+      delete 'destroy_all_current_queue_type'
     end
   end
   get '/requests/new', to: 'requests#new'

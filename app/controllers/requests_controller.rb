@@ -14,7 +14,6 @@ class RequestsController < ApplicationController
   # Manage Requests view
   def index
     set_queue_type
-    
     @requests = Request.where(queue_type: @queue_type)
     
     if @requests.empty? 
@@ -69,7 +68,6 @@ class RequestsController < ApplicationController
   def destroy_all_current_queue_type
     set_queue_type
     Request.where(queue_type: @queue_type).destroy_all
-    redirect_back fallback_location 
   end
   
   private
