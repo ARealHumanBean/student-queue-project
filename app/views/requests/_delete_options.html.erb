@@ -1,6 +1,6 @@
 <%= link_to(
   "Remove #{@queue_type.titleize} Requests", 
-  destroy_all_current_queue_type_requests_path,
+  destroy_all_current_queue_type_requests_path(queue_type: @queue_type),
   method: :delete,
   data: {confirm: "Are you sure?"},
   class:'btn btn-danger')%>
