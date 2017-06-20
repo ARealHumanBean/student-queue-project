@@ -1,8 +1,11 @@
 <% unless request.blank? %>
   <li class="request">
     <div class="theme">
-      <h4><b class="arrow"></b><b>Submitter:</b> <%= request.user.full_name %>&nbsp;&nbsp; 
-        <b>Submitted:</b> <%= time_ago_in_words(request.created_at) %> ago </h4>
+      <h4>
+        <b class="arrow"></b>
+        <span><strong>Submitter:</strong> <%= request.user.full_name %></span>
+        <span class="submitted"><strong>Submitted:</strong> <%= time_ago_in_words(request.created_at) %> ago</span> 
+      </h4>
     </div>
     <div class="abstract">
       <textarea readonly = "true", class ="form-control info-box"><%= request.info %></textarea>
