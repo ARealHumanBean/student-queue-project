@@ -1,6 +1,9 @@
 class RequestsController < ApplicationController
-  before_action :require_instructor, :only=>[:index]
+  before_action :require_instructor, :only=>[
+    :index, :destroy_all, :destroy_all_current_type
+  ]
   before_action :require_student, :only=>[:new, :create]
+  
   def new 
     if current_user.request
       redirect_to current_user.request
@@ -10,16 +13,12 @@ class RequestsController < ApplicationController
   
   # Manage Requests view
   def index
-    @queue_type = params[:queue_type]
-    unless ["question", "support", "demo"].include?(@queue_type)
-      @queue_type = "question"
-    end
-    
+    set_queue_type
     @requests = Request.where(queue_type: @queue_type)
     
-    #if @requests.empty? 
-    #  flash[:danger] = "No requests for #{@queue_type} are submitted"
-    #end
+    if @requests.empty? 
+      flash[:danger] = "No requests for #{@queue_type} are submitted"
+    end
     
     respond_to do |format|
       format.html
@@ -62,6 +61,15 @@ class RequestsController < ApplicationController
   def edit  
   end
   
+  def destroy_all
+    Request.destroy_all
+  end
+  
+  def destroy_all_current_queue_type
+    set_queue_type
+    Request.where(queue_type: @queue_type).destroy_all
+  end
+  
   private
     def request_params
       params.require(:request).permit(:queue_type, :info, :id)
@@ -83,6 +91,13 @@ class RequestsController < ApplicationController
           flash[:danger] = "You don't have access to that request!"
           redirect_back(fallback_location: new_request_path)
         end
+      end
+    end
+    
+    def set_queue_type
+      @queue_type = params[:queue_type]
+      unless ["question", "support", "demo"].include?(@queue_type)
+        @queue_type = "question"
       end
     end
 end

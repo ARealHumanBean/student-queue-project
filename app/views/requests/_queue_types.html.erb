@@ -1,0 +1,14 @@
+<div class="request_type row">
+  <div class="col-md-4 text-center">
+    <%= link_to "Question", manage_requests_path(queue_type: "question"), 
+      {class:"btn btn-primary btn-lg"} %>
+  </div>
+  <div class="col-md-4 text-center">
+      <%= link_to "Support", manage_requests_path(queue_type: "support"), 
+        {class:"btn btn-primary btn-lg"} %>
+  </div>
+  <div class="col-md-4 text-center">
+      <%= link_to "Demo", manage_requests_path(queue_type: "demo"), 
+        {class:"btn btn-primary btn-lg"} %>
+  </div>
+</div>
