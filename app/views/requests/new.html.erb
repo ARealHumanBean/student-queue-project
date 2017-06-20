@@ -1,5 +1,5 @@
 <% content_for :title, "New Request" %>
-<div class="container contents">
+<div class="container contents" id= "new_request_page">
   <h2>Select the Request Type:</h2>
   <br>
   <div class ="request_type row">
@@ -14,48 +14,6 @@
     </div>
   </div>
   <div class="form_bg">
-    <div class="question">
-      <%= form_for(@request) do |f| %>
-        
-        <h4>Selected Type: Question</h4>
-        <hr>
-        <br>
-        <%= f.hidden_field :queue_type, :value => "question" %>
-        <%= f.label :info %>
-        <%= f.text_area :info, class: 'form-control' %>
-        <br>
-        <%= f.submit "Submit your Request", class: "btn btn-primary  pull-right" %>
-      <% end %>
-    </div>
-
-    <div class="support">
-        
-      <%= form_for(@request) do |f| %>
-        
-        <h4>Selected Type: Support</h4>
-        <hr>
-        <br>
-        <%= f.hidden_field :queue_type, :value => "support" %>
-        <%= f.label :info %>
-        <%= f.text_area :info, class: 'form-control' %>
-        <br>
-        <%= f.submit "Submit your Request", class: "btn btn-primary  pull-right" %>
-      <% end %>
-    </div>
-      
-    <div class="demo">
-    
-      <%= form_for(@request) do |f| %>
-        
-        <h4>Selected Type: Demo</h4>
-        <hr>
-        <br>
-        <%= f.hidden_field :queue_type, :value => "demo" %>
-        <%= f.label :info %>
-        <%= f.text_area :info, class: 'form-control' %>
-        <br>
-        <%= f.submit "Submit your Request", class: "btn btn-primary pull-right" %>
-      <% end %>
-    </div>
+    <%= render partial: 'new_queue_types' %>
   </div>
 </div>

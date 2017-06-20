@@ -45,27 +45,29 @@ refresh_requests_partial = ->
   return
 
 $(document).on 'ready page:load', -> 
+  # Refresh the requests in index every 5 seconds
   if $('#manage_requests_page').length > 0
     setInterval refresh_requests_partial, 5000
-
-	$(".question").show()
-	$(".support").hide()
-	$(".demo").hide()
-		
-	$('#question').click ->
-  	$(".question").fadeIn('slow')
+  
+  if $("#new_request_page").length > 0
+  	$(".question").show()
   	$(".support").hide()
   	$(".demo").hide()
-  	
-	$('#support').click ->
-  	$(".question").hide()
-  	$(".support").fadeIn('slow')
-  	$(".demo").hide()
-  	
-	$('#demo').click ->
-  	$(".question").hide()
-  	$(".support").hide()
-  	$(".demo").fadeIn('slow')
+  		
+  	$('#question').click ->
+    	$(".question").fadeIn('slow')
+    	$(".support").hide()
+    	$(".demo").hide()
+    	
+  	$('#support').click ->
+    	$(".question").hide()
+    	$(".support").fadeIn('slow')
+    	$(".demo").hide()
+    	
+  	$('#demo').click ->
+    	$(".question").hide()
+    	$(".support").hide()
+    	$(".demo").fadeIn('slow')
 
 $ ->
   requests_drop_down()
