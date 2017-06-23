@@ -9,14 +9,18 @@
 user_list = [
   ["C0000001", :instructor, "joe", "biden"],
   ["C0000002", :student, "chris", "lastname"],
-  ["C0000003", :student, "firstname", ""],
-  ["C0000004", :student, "", "lastname"],
-  ["C0000005", :student, "firstname", "lastname"],
-  ["C0000006", :student, "man", "dood"],
-  ["C0000007", :student, "sad", "boy"],
-  ["C0000008", :student, "derg", "hiut"],
-  ["C0000009", :student, "aksr", "lop"],
-  ["C0000010", :student, "rateq", "lokm"]]
+  ["C0000003", :student, "don", "atello"],
+  ["C0000004", :student, "Jon", "Ilre"],
+  ["C0000005", :student, "Loke", "Jhequ"],
+  ["C0000006", :student, "Daniel", "loken"],
+  ["C0000007", :student, "Nick", "Lammy"],
+  ["C0000008", :student, "Alex", "Beinet"],
+  ["C0000009", :student, "hone", "lope"],
+  ["C0000010", :student, "ques", "Ipe"],
+  ["C0000011", :student, "Takumi", "Takumi"],
+  ["C0000012", :student, "Dylan", "Burton"],
+  ["C0000013", :student, "Jack", "Beanstalk"],
+  ["C0000014", :student, "Loser", "Dude"]]
 
 queue_types = [:question, :demo, :support]
 
@@ -28,8 +32,10 @@ request_info = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
 user_list.each do |camosun_id, role, first_name, last_name|
   user = User.create(camosun_id: camosun_id, role: role, first_name: first_name,
     last_name: last_name)
-  Request.create(user_id: user.id, queue_type: queue_types.sample, 
-    info: request_info)
+  unless user.instructor?
+    Request.create(user_id: user.id, queue_type: queue_types.sample, 
+      info: request_info)
+  end
 end
   
   
