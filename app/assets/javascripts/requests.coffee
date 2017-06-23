@@ -14,7 +14,7 @@ get_params = ->
 
   params
 
-requests_drop_down = ->
+requests_accordion = ->
     $('.accordion').find('.theme').click ->
       $(this).next('.abstract').slideToggle 'fast', ->
         curr = $(this).prev('div').children('h4')
@@ -40,7 +40,7 @@ refresh_requests_partial = ->
       url:"/manage_requests.js?queue_type=" + get_params().queue_type
       context: document.body, 
       success: (data) ->
-        requests_drop_down()
+        requests_accordion()
     })
   return
 
@@ -70,6 +70,6 @@ $(document).on 'ready page:load', ->
     	$(".demo").fadeIn('slow')
 
 $ ->
-  requests_drop_down()
+  requests_accordion()
   return
 
