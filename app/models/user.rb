@@ -4,6 +4,7 @@ class User < ApplicationRecord
   enum role: [:instructor, :student]
   # set role to student by default
   after_initialize :set_default_role, :if => :new_record?
+  before_save :tileize_name
   
   validates :camosun_id, presence: true, length: { maximum: 8 }, 
     uniqueness: true
@@ -17,6 +18,10 @@ class User < ApplicationRecord
   
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+  
+  def tileize_name
+    self.name = self.name.titleize
   end
   
   def self.import(file)
