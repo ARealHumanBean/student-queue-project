@@ -21,7 +21,8 @@ class User < ApplicationRecord
   end
   
   def tileize_name
-    self.name = self.name.titleize
+    self.first_name = self.first_name.titleize
+    self.last_name = self.last_name.titleize
   end
   
   def self.import(file)
